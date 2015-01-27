@@ -1,4 +1,5 @@
 require 'rspec/its'
+require 'rspec/collection_matchers'
 require_relative '../lib/message_filter'
 
 describe MessageFilter do
@@ -12,7 +13,7 @@ describe MessageFilter do
     subject { MessageFilter.new('foo') }
     it_behaves_like 'MessageFilter with argument "foo"'
     it 'ng_words size is 1' do
-      expect(subject.ng_words.size).to eq 1
+      expect(subject.ng_words).to have(1).item
     end
   end
 
